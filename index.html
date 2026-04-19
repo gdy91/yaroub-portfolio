@@ -161,6 +161,34 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 ::-webkit-scrollbar{width:2px;}
 ::-webkit-scrollbar-track{background:var(--black);}
 ::-webkit-scrollbar-thumb{background:var(--gold-dim);}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;gap:2rem;}
+  .hero-image-wrap{order:-1;}
+  .hero-img-frame img{height:380px;}
+  .hero-img-badge{left:1rem;bottom:1rem;}
+  .hero-name{font-size:clamp(2.5rem,12vw,4rem);}
+  .hero-bg-text{font-size:8rem;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:2rem 1.5rem;}
+  section{padding:4rem 1.5rem;}
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-photo img{height:350px;}
+  .skills-grid{grid-template-columns:1fr;}
+  .edu-grid{grid-template-columns:1fr;}
+  .timeline-item{grid-template-columns:1fr;gap:0.5rem;}
+  .timeline-divider{display:none;}
+  .timeline-period{padding-bottom:0.5rem;border-bottom:0.5px solid var(--border);}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem;}
+  .hero-cta{flex-direction:column;}
+  .btn-primary,.btn-outline{text-align:center;}
+  .contact-links{flex-direction:column;align-items:center;}
+}
+@media(max-width:480px){
+  .stat-number{font-size:2rem;}
+  .hero-img-frame img{height:300px;}
+}
 </style>
 </head>
 <body>
@@ -169,10 +197,10 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
   <div class="nav-logo">YN</div>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#about" data-ar="عني" data-en="About">عني</a></li>
-      <li><a href="#experience" data-ar="الخبرات" data-en="Experience">الخبرات</a></li>
-      <li><a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a></li>
-      <li><a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a></li>
+      <li><a href="#about" data-ar="عني" data-en="About" data-tr="Hakkımda">عني</a></li>
+      <li><a href="#experience" data-ar="الخبرات" data-en="Experience" data-tr="Deneyim">الخبرات</a></li>
+      <li><a href="#skills" data-ar="المهارات" data-en="Skills" data-tr="Beceriler">المهارات</a></li>
+      <li><a href="#contact" data-ar="تواصل" data-en="Contact" data-tr="İletişim">تواصل</a></li>
     </ul>
     <button class="lang-btn" onclick="toggleLang()" id="lang-btn">
       <span class="lang-flag">🌐</span>
@@ -186,22 +214,22 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
   <div class="hero-content">
     <div class="hero-badge animate-fade-up d1">
       <div class="hero-badge-dot"></div>
-      <span data-ar="متاح للفرص الاستراتيجية" data-en="Open to Strategic Opportunities">متاح للفرص الاستراتيجية</span>
+      <span data-ar="متاح للفرص الاستراتيجية" data-en="Open to Strategic Opportunities" data-tr="Stratejik Fırsatlara Açık">متاح للفرص الاستراتيجية</span>
     </div>
     <h1 class="hero-name animate-fade-up d2">
-      <span data-ar="يعرب" data-en="Yareb">يعرب</span><br>
-      <span style="color:var(--gold)" data-ar="نضال بلال" data-en="Nidal Bilal">نضال بلال</span>
+      <span data-ar="يعرب" data-en="Yaroub" data-tr="Yaroub">يعرب</span><br>
+      <span style="color:var(--gold)" data-ar="نضال بلال" data-en="Nidal Bilal" data-tr="Nidal Bilal">نضال بلال</span>
     </h1>
     <div class="hero-title-line"></div>
-    <p class="hero-subtitle animate-fade-up d3" data-ar="Senior Visual Communications & Gov. Identity Specialist — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي." data-en="Senior Visual Communications & Gov. Identity Specialist — 12+ years blending art, strategy, and AI to deliver forward-thinking visual solutions.">Senior Visual Communications & Gov. Identity Specialist — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي.</p>
+    <p class="hero-subtitle animate-fade-up d3" data-ar="أخصائي الاتصالات البصرية والهوية الحكومية — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي." data-en="Senior Visual Communications & Gov. Identity Specialist — 12+ years blending art, strategy, and AI to deliver forward-thinking visual solutions." data-tr="Kıdemli Görsel İletişim Uzmanı — Sanatı, stratejiyi ve yapay zekayı harmanlayan 12+ yıllık deneyim.">أخصائي الاتصالات البصرية والهوية الحكومية — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي.</p>
     <div class="hero-meta animate-fade-up d4">
-      <div class="hero-meta-item"><span class="hero-meta-icon">📍</span> <span data-ar="عجمان / دبي، الإمارات" data-en="Ajman / Dubai, UAE">عجمان / دبي، الإمارات</span></div>
-      <div class="hero-meta-item"><span class="hero-meta-icon">🏛</span> <span data-ar="الهيئة العامة للطيران المدني" data-en="General Civil Aviation Authority">الهيئة العامة للطيران المدني</span></div>
-      <div class="hero-meta-item"><span class="hero-meta-icon">✦</span> <span data-ar="+12 سنة خبرة" data-en="12+ Years Experience">+12 سنة خبرة</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-icon">📍</span> <span data-ar="عجمان / دبي، الإمارات" data-en="Ajman / Dubai, UAE" data-tr="Acman / Dubai, BAE">عجمان / دبي، الإمارات</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-icon">🏛</span> <span data-ar="الهيئة العامة للطيران المدني" data-en="General Civil Aviation Authority" data-tr="Genel Sivil Havacılık Otoritesi">الهيئة العامة للطيران المدني</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-icon">✦</span> <span data-ar="+12 سنة خبرة" data-en="12+ Years Experience" data-tr="12+ Yıl Deneyim">+12 سنة خبرة</span></div>
     </div>
     <div class="hero-cta animate-fade-up d5">
-      <a href="#contact" class="btn-primary" data-ar="تواصل معي" data-en="Get in Touch">تواصل معي</a>
-      <a href="#experience" class="btn-outline" data-ar="الخبرات" data-en="Experience">الخبرات</a>
+      <a href="#contact" class="btn-primary" data-ar="تواصل معي" data-en="Get in Touch" data-tr="İletişime Geç">تواصل معي</a>
+      <a href="#experience" class="btn-outline" data-ar="الخبرات" data-en="Experience" data-tr="Deneyim">الخبرات</a>
     </div>
   </div>
   <div class="hero-image-wrap animate-slide-left d3">
@@ -209,23 +237,23 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
       <img src="hero.jpg" alt="يعرب نضال بلال">
       <div class="hero-img-badge">
         <div class="hero-img-badge-num">12+</div>
-        <div class="hero-img-badge-txt" data-ar="سنة خبرة" data-en="Years of Experience">سنة خبرة</div>
+        <div class="hero-img-badge-txt" data-ar="سنة خبرة" data-en="Years of Experience" data-tr="Yıl Deneyim">سنة خبرة</div>
       </div>
     </div>
   </div>
 </section>
 
 <div class="stats-bar">
-  <div class="stat-item reveal"><div class="stat-number">12+</div><div class="stat-label" data-ar="سنة خبرة" data-en="Years Exp.">سنة خبرة</div></div>
-  <div class="stat-item reveal" style="transition-delay:.1s"><div class="stat-number">3</div><div class="stat-label" data-ar="جهات حكومية" data-en="Gov. Entities">جهات حكومية</div></div>
-  <div class="stat-item reveal" style="transition-delay:.2s"><div class="stat-number">AI</div><div class="stat-label" data-ar="خبير توليدي" data-en="Generative Expert">خبير توليدي</div></div>
-  <div class="stat-item reveal" style="transition-delay:.3s"><div class="stat-number">★★</div><div class="stat-label" data-ar="جوائز جامعية" data-en="Academic Awards">جوائز جامعية</div></div>
+  <div class="stat-item reveal"><div class="stat-number">12+</div><div class="stat-label" data-ar="سنة خبرة" data-en="Years Exp." data-tr="Yıl Deneyim">سنة خبرة</div></div>
+  <div class="stat-item reveal" style="transition-delay:.1s"><div class="stat-number">3</div><div class="stat-label" data-ar="جهات حكومية" data-en="Gov. Entities" data-tr="Kamu Kurumu">جهات حكومية</div></div>
+  <div class="stat-item reveal" style="transition-delay:.2s"><div class="stat-number">AI</div><div class="stat-label" data-ar="خبير توليدي" data-en="Generative Expert" data-tr="Üretken AI Uzmanı">خبير توليدي</div></div>
+  <div class="stat-item reveal" style="transition-delay:.3s"><div class="stat-number">★★</div><div class="stat-label" data-ar="جوائز جامعية" data-en="Academic Awards" data-tr="Akademik Ödüller">جوائز جامعية</div></div>
 </div>
 
 <section id="about">
   <div class="section-header reveal">
-    <div class="section-label" data-ar="عني" data-en="About">عني</div>
-    <h2 class="section-title" data-ar="من أنا" data-en="Who I Am">من أنا</h2>
+    <div class="section-label" data-ar="عني" data-en="About" data-tr="Hakkımda">عني</div>
+    <h2 class="section-title" data-ar="من أنا" data-en="Who I Am" data-tr="Ben Kimim">من أنا</h2>
   </div>
   <div class="about-grid">
     <div class="about-photo reveal-left">
@@ -246,15 +274,15 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 
 <section class="exp-section" id="experience">
   <div class="section-header reveal">
-    <div class="section-label" data-ar="الخبرات" data-en="Experience">الخبرات</div>
-    <h2 class="section-title" data-ar="المسيرة المهنية" data-en="Career Journey">المسيرة المهنية</h2>
+    <div class="section-label" data-ar="الخبرات" data-en="Experience" data-tr="Deneyim">الخبرات</div>
+    <h2 class="section-title" data-ar="المسيرة المهنية" data-en="Career Journey" data-tr="Kariyer Yolculuğu">المسيرة المهنية</h2>
   </div>
   <div class="timeline">
     <div class="timeline-item reveal">
       <div class="timeline-period"><div class="timeline-year" data-ar="يونيو 2025 — الحاضر" data-en="June 2025 — Present">يونيو 2025 — الحاضر</div><div class="timeline-org">GCAA · دبي</div></div>
       <div class="timeline-divider"></div>
       <div class="timeline-content">
-        <div class="timeline-role" data-ar="Senior Visual Communications & Gov. Identity Specialist" data-en="Senior Visual Communications & Gov. Identity Specialist">Senior Visual Communications & Gov. Identity Specialist</div>
+        <div class="timeline-role" data-ar="أخصائي الاتصالات البصرية والهوية الحكومية" data-en="Senior Visual Communications & Gov. Identity Specialist">أخصائي الاتصالات البصرية والهوية الحكومية</div>
         <p class="timeline-desc" data-ar="قيادة التوجه البصري للمبادرات الحكومية الاستراتيجية — تصفير البيروقراطية، خدمات 7 نجوم، متطلبات مجلس الوزراء، ومبادرة شارك. تصميم وتطوير واجهات UI/UX للخدمات الرقمية. إدارة مشاريع القيادات العليا بدقة واحترافية." data-en="Leading visual direction for strategic government initiatives — Zero Bureaucracy, 7-Star Services, Cabinet requirements, and Sharek initiative. Designing and developing UI/UX interfaces for digital services. Managing senior leadership projects with precision.">قيادة التوجه البصري للمبادرات الحكومية الاستراتيجية — تصفير البيروقراطية، خدمات 7 نجوم، متطلبات مجلس الوزراء، ومبادرة شارك. تصميم وتطوير واجهات UI/UX للخدمات الرقمية. إدارة مشاريع القيادات العليا بدقة واحترافية.</p>
         <div class="timeline-tags"><span class="tag">Visual Strategy</span><span class="tag">UI/UX</span><span class="tag">AI Design</span><span class="tag">Gov Digital</span><span class="tag">Zero Bureaucracy</span><span class="tag">شارك</span></div>
       </div>
@@ -291,7 +319,7 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 
 <section id="skills">
   <div class="section-header reveal">
-    <div class="section-label" data-ar="المهارات" data-en="Skills">المهارات</div>
+    <div class="section-label" data-ar="المهارات" data-en="Skills" data-tr="Beceriler">المهارات</div>
     <h2 class="section-title" data-ar="المهارات" data-en="Skills & Expertise">المهارات</h2>
   </div>
   <div class="skills-grid">
@@ -306,8 +334,8 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 
 <section style="background:var(--surface);" id="education">
   <div class="section-header reveal">
-    <div class="section-label" data-ar="التعليم والجوائز" data-en="Education & Awards">التعليم والجوائز</div>
-    <h2 class="section-title" data-ar="التعليم والجوائز" data-en="Education & Awards">التعليم والجوائز</h2>
+    <div class="section-label" data-ar="التعليم والجوائز" data-en="Education & Awards" data-tr="Eğitim ve Ödüller">التعليم والجوائز</div>
+    <h2 class="section-title" data-ar="التعليم والجوائز" data-en="Education & Awards" data-tr="Eğitim ve Ödüller">التعليم والجوائز</h2>
   </div>
   <div class="edu-grid">
     <div class="edu-card reveal" style="transition-delay:.05s"><div class="edu-year" data-ar="التعليم" data-en="Education">التعليم</div><div class="edu-title" data-ar="بكالوريوس تصميم جرافيكي" data-en="Bachelor of Graphic Design">بكالوريوس تصميم جرافيكي</div><div class="edu-desc" data-ar="كلية الإعلام — كلية تكنولوجيا المعلومات، جامعة عجمان" data-en="College of Media — College of Information Technology, Ajman University">كلية الإعلام — كلية تكنولوجيا المعلومات، جامعة عجمان</div></div>
@@ -318,10 +346,10 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 </section>
 
 <section class="contact-section" id="contact">
-  <div class="section-label reveal" data-ar="تواصل" data-en="Contact">تواصل</div>
-  <h2 class="section-title reveal" style="margin-bottom:1rem;" data-ar="نتحدث؟" data-en="Let's Talk?">نتحدث؟</h2>
+  <div class="section-label reveal" data-ar="تواصل" data-en="Contact" data-tr="İletişim">تواصل</div>
+  <h2 class="section-title reveal" style="margin-bottom:1rem;" data-ar="نتحدث؟" data-en="Let's Talk?" data-tr="Konuşalım mı?">نتحدث؟</h2>
   <div class="contact-email reveal">yaroubb@gmail.com</div>
-  <p class="contact-meta reveal" data-ar="متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي" data-en="Available for strategic opportunities & creative projects · Ajman / Dubai">متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي</p>
+  <p class="contact-meta reveal" data-ar="متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي" data-en="Available for strategic opportunities & creative projects · Ajman / Dubai" data-tr="Stratejik fırsatlar ve yaratıcı projeler için müsait · Acman / Dubai">متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي</p>
   <div class="contact-links reveal">
     <a href="#" class="btn-primary" data-ar="LinkedIn" data-en="LinkedIn">LinkedIn</a>
     <a href="#" class="btn-outline" data-ar="Behance Portfolio" data-en="Behance Portfolio">Behance Portfolio</a>
@@ -330,34 +358,30 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 </section>
 
 <footer>
-  <span class="footer-copy" data-ar="© 2025 يعرب نضال بلال · جميع الحقوق محفوظة" data-en="© 2025 Yareb Nidal Bilal · All rights reserved">© 2025 يعرب نضال بلال · جميع الحقوق محفوظة</span>
+  <span class="footer-copy" data-ar="© 2025 يعرب نضال بلال · جميع الحقوق محفوظة" data-en="© 2025 Yaroub Nidal Bilal · All rights reserved" data-tr="© 2025 Yaroub Nidal Bilal · Tüm hakları saklıdır">© 2025 يعرب نضال بلال · جميع الحقوق محفوظة</span>
   <span class="footer-logo">YN · Strategic Visual Expert</span>
 </footer>
 
 <script>
+const langs = ['ar', 'en', 'tr'];
+const langLabels = {ar: 'EN', en: 'TR', tr: 'عر'};
+const langDirs = {ar: 'rtl', en: 'ltr', tr: 'ltr'};
+const langCodes = {ar: 'ar', en: 'en', tr: 'tr'};
 let currentLang = 'ar';
 
 function toggleLang() {
-  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  const idx = langs.indexOf(currentLang);
+  currentLang = langs[(idx + 1) % langs.length];
   const html = document.getElementById('html-root');
   const label = document.getElementById('lang-label');
-
-  if (currentLang === 'en') {
-    html.setAttribute('lang', 'en');
-    html.setAttribute('dir', 'ltr');
-    label.textContent = 'عر';
-  } else {
-    html.setAttribute('lang', 'ar');
-    html.setAttribute('dir', 'rtl');
-    label.textContent = 'EN';
-  }
-
-  document.querySelectorAll('[data-ar][data-en]').forEach(el => {
-    const val = el.getAttribute('data-' + currentLang);
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else {
-      el.innerHTML = val;
+  html.setAttribute('lang', langCodes[currentLang]);
+  html.setAttribute('dir', langDirs[currentLang]);
+  label.textContent = langLabels[currentLang];
+  document.querySelectorAll('[data-ar]').forEach(el => {
+    const val = el.getAttribute('data-' + currentLang) || el.getAttribute('data-en');
+    if (val) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+      else el.innerHTML = val;
     }
   });
 }
