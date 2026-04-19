@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="html-root">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>يعرب نضال  بلال — Senior Graphic Designer</title>
+<title>يعرب نضال بلال — Senior Visual Communications Specialist</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#8a6e2f;
-  --black:#0A0A0A;--surface:#111111;--surface2:#181818;--surface3:#222222;
+  --black:#0A0A0A;--surface:#111111;--surface2:#181818;
   --border:rgba(201,168,76,0.18);--border-strong:rgba(201,168,76,0.5);
   --text:#F0EAD6;--text-muted:#8A8378;--text-dim:#444;
 }
@@ -17,7 +17,6 @@ html{scroll-behavior:smooth;}
 body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes slideLeft{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
 @keyframes lineGrow{from{width:0;}to{width:60px;}}
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
@@ -35,8 +34,24 @@ body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;
 .reveal-right{opacity:0;transform:translateX(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal-right.visible{opacity:1;transform:translateX(0);}
 
+/* LANG TOGGLE */
+.lang-btn{display:flex;align-items:center;gap:6px;background:transparent;border:.5px solid var(--border-strong);color:var(--gold);padding:.35rem .85rem;border-radius:100px;font-size:.72rem;letter-spacing:.14em;cursor:pointer;transition:all .3s;font-family:'DM Sans',sans-serif;}
+.lang-btn:hover{background:rgba(201,168,76,.1);}
+.lang-flag{font-size:.9rem;}
+
+/* LTR mode for English */
+html[dir="ltr"] body{font-family:'DM Sans',sans-serif;}
+html[dir="ltr"] .nav-links a::after{left:0;}
+html[dir="ltr"] .hero-bg-text{left:auto;right:-1rem;}
+html[dir="ltr"] .feature-item:hover{transform:translateX(4px);}
+html[dir="ltr"] .hero-title-line{background:linear-gradient(90deg,var(--gold),transparent);}
+html[dir="ltr"] .about-photo-tag{left:auto;right:1.5rem;}
+html[dir="ltr"] .hero-img-badge{left:auto;right:-2rem;}
+html[dir="ltr"] .edu-card::before{left:0;right:auto;}
+
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4rem;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:.5px solid var(--border);transition:padding .3s;}
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);letter-spacing:.05em;font-style:italic;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 3s linear infinite;}
+.nav-right{display:flex;align-items:center;gap:2rem;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;transition:color .3s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
@@ -66,7 +81,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .hero-img-frame{position:relative;width:100%;max-width:400px;}
 .hero-img-frame::before{content:'';position:absolute;top:-16px;right:-16px;width:100%;height:100%;border:1px solid var(--border-strong);border-radius:4px;z-index:0;}
 .hero-img-frame img{width:100%;height:580px;object-fit:cover;object-position:top;border-radius:4px;position:relative;z-index:1;display:block;filter:grayscale(20%) contrast(1.05);}
-.hero-img-badge{position:absolute;bottom:1.5rem;left:-2rem;z-index:2;background:rgba(10,10,10,.95);border:.5px solid var(--border-strong);padding:.75rem 1.25rem;border-radius:4px;backdrop-filter:blur(12px);}
+.hero-img-badge{position:absolute;bottom:1.5rem;left:-2rem;z-index:2;background:rgba(10,10,10,.95);border:.5px solid var(--border-strong);padding:.75rem 1.25rem;border-radius:4px;}
 .hero-img-badge-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);line-height:1;}
 .hero-img-badge-txt{font-size:.65rem;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.2rem;}
 
@@ -83,7 +98,7 @@ section{padding:6rem 4rem;}
 
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
 .about-photo{position:relative;}
-.about-photo img{width:100%;height:500px;object-fit:cover;object-position:top center;border-radius:4px;filter:grayscale(15%) contrast(1.05);}
+.about-photo img{width:100%;height:auto;max-height:600px;object-fit:cover;object-position:top center;border-radius:4px;filter:grayscale(15%) contrast(1.05);}
 .about-photo::after{content:'';position:absolute;inset:0;border-radius:4px;box-shadow:inset 0 0 0 1px var(--border);}
 .about-photo-tag{position:absolute;top:1.5rem;left:1.5rem;background:rgba(10,10,10,.9);border:.5px solid var(--border-strong);padding:.5rem 1rem;border-radius:4px;font-size:.7rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;}
 .about-text{font-size:.95rem;color:var(--text-muted);line-height:1.9;}
@@ -97,7 +112,7 @@ section{padding:6rem 4rem;}
 
 .exp-section{background:var(--surface);}
 .timeline{display:flex;flex-direction:column;}
-.timeline-item{display:grid;grid-template-columns:180px 1px 1fr;gap:0 2.5rem;padding:2.5rem 0;border-bottom:.5px solid var(--border);transition:background .3s;}
+.timeline-item{display:grid;grid-template-columns:180px 1px 1fr;gap:0 2.5rem;padding:2.5rem 0;border-bottom:.5px solid var(--border);}
 .timeline-item:last-child{border-bottom:none;}
 .timeline-item:hover .timeline-role{color:var(--gold);}
 .timeline-period{padding-top:.2rem;}
@@ -121,8 +136,7 @@ section{padding:6rem 4rem;}
 .skill-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
 .skill-list li{font-size:.88rem;color:var(--text-muted);display:flex;align-items:center;gap:.6rem;transition:color .2s;}
 .skill-list li:hover{color:var(--text);}
-.skill-list li::before{content:'';width:4px;height:4px;background:var(--gold-dim);border-radius:50%;flex-shrink:0;transition:background .2s;}
-.skill-list li:hover::before{background:var(--gold);}
+.skill-list li::before{content:'';width:4px;height:4px;background:var(--gold-dim);border-radius:50%;flex-shrink:0;}
 
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
 .edu-card{padding:2rem;border:.5px solid var(--border);border-radius:4px;position:relative;overflow:hidden;transition:all .3s;}
@@ -153,12 +167,18 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 
 <nav>
   <div class="nav-logo">YN</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-ar="عني" data-en="About">عني</a></li>
+      <li><a href="#experience" data-ar="الخبرات" data-en="Experience">الخبرات</a></li>
+      <li><a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a></li>
+      <li><a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a></li>
+    </ul>
+    <button class="lang-btn" onclick="toggleLang()" id="lang-btn">
+      <span class="lang-flag">🌐</span>
+      <span id="lang-label">EN</span>
+    </button>
+  </div>
 </nav>
 
 <section class="hero" id="home">
@@ -166,56 +186,59 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
   <div class="hero-content">
     <div class="hero-badge animate-fade-up d1">
       <div class="hero-badge-dot"></div>
-      Open to Strategic Opportunities
+      <span data-ar="متاح للفرص الاستراتيجية" data-en="Open to Strategic Opportunities">متاح للفرص الاستراتيجية</span>
     </div>
-    <h1 class="hero-name animate-fade-up d2">يعروب<br><span>فياض</span></h1>
+    <h1 class="hero-name animate-fade-up d2">
+      <span data-ar="يعرب" data-en="Yareb">يعرب</span><br>
+      <span style="color:var(--gold)" data-ar="نضال بلال" data-en="Nidal Bilal">نضال بلال</span>
+    </h1>
     <div class="hero-title-line"></div>
-    <p class="hero-subtitle animate-fade-up d3">Senior Graphic Designer &amp; Strategic Visual Expert — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي.</p>
+    <p class="hero-subtitle animate-fade-up d3" data-ar="Senior Visual Communications & Gov. Identity Specialist — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي." data-en="Senior Visual Communications & Gov. Identity Specialist — 12+ years blending art, strategy, and AI to deliver forward-thinking visual solutions.">Senior Visual Communications & Gov. Identity Specialist — شغفٌ يمتد لـ 12 سنة في دمج الفن مع الاستراتيجية وتقنيات الذكاء الاصطناعي.</p>
     <div class="hero-meta animate-fade-up d4">
-      <div class="hero-meta-item"><span class="hero-meta-icon">📍</span> عجمان / دبي، الإمارات</div>
-      <div class="hero-meta-item"><span class="hero-meta-icon">🏛</span> هيئة الطيران المدني</div>
-      <div class="hero-meta-item"><span class="hero-meta-icon">✦</span> +12 سنة خبرة</div>
+      <div class="hero-meta-item"><span class="hero-meta-icon">📍</span> <span data-ar="عجمان / دبي، الإمارات" data-en="Ajman / Dubai, UAE">عجمان / دبي، الإمارات</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-icon">🏛</span> <span data-ar="هيئة الطيران المدني" data-en="General Civil Aviation Authority">هيئة الطيران المدني</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-icon">✦</span> <span data-ar="+12 سنة خبرة" data-en="12+ Years Experience">+12 سنة خبرة</span></div>
     </div>
     <div class="hero-cta animate-fade-up d5">
-      <a href="#contact" class="btn-primary">تواصل معي</a>
-      <a href="#experience" class="btn-outline">الخبرات</a>
+      <a href="#contact" class="btn-primary" data-ar="تواصل معي" data-en="Get in Touch">تواصل معي</a>
+      <a href="#experience" class="btn-outline" data-ar="الخبرات" data-en="Experience">الخبرات</a>
     </div>
   </div>
   <div class="hero-image-wrap animate-slide-left d3">
     <div class="hero-img-frame">
-      <img src="hero.jpg" alt="يعرب نضال  بلال">
+      <img src="hero.jpg" alt="يعرب نضال بلال">
       <div class="hero-img-badge">
         <div class="hero-img-badge-num">12+</div>
-        <div class="hero-img-badge-txt">Years of Experience</div>
+        <div class="hero-img-badge-txt" data-ar="سنة خبرة" data-en="Years of Experience">سنة خبرة</div>
       </div>
     </div>
   </div>
 </section>
 
 <div class="stats-bar">
-  <div class="stat-item reveal"><div class="stat-number">12+</div><div class="stat-label">سنة خبرة</div></div>
-  <div class="stat-item reveal" style="transition-delay:.1s"><div class="stat-number">3</div><div class="stat-label">جهات حكومية</div></div>
-  <div class="stat-item reveal" style="transition-delay:.2s"><div class="stat-number">AI</div><div class="stat-label">Generative Expert</div></div>
-  <div class="stat-item reveal" style="transition-delay:.3s"><div class="stat-number">★★</div><div class="stat-label">جوائز جامعية</div></div>
+  <div class="stat-item reveal"><div class="stat-number">12+</div><div class="stat-label" data-ar="سنة خبرة" data-en="Years Exp.">سنة خبرة</div></div>
+  <div class="stat-item reveal" style="transition-delay:.1s"><div class="stat-number">3</div><div class="stat-label" data-ar="جهات حكومية" data-en="Gov. Entities">جهات حكومية</div></div>
+  <div class="stat-item reveal" style="transition-delay:.2s"><div class="stat-number">AI</div><div class="stat-label" data-ar="خبير توليدي" data-en="Generative Expert">خبير توليدي</div></div>
+  <div class="stat-item reveal" style="transition-delay:.3s"><div class="stat-number">★★</div><div class="stat-label" data-ar="جوائز جامعية" data-en="Academic Awards">جوائز جامعية</div></div>
 </div>
 
 <section id="about">
   <div class="section-header reveal">
-    <div class="section-label">About</div>
-    <h2 class="section-title">من أنا</h2>
+    <div class="section-label" data-ar="عني" data-en="About">عني</div>
+    <h2 class="section-title" data-ar="من أنا" data-en="Who I Am">من أنا</h2>
   </div>
   <div class="about-grid">
     <div class="about-photo reveal-left">
-      <img src="about.jpg" alt="يعرب نضال  بلال">
-      <div class="about-photo-tag">Strategic Visual Expert</div>
+      <img src="about.jpg" alt="يعرب نضال بلال">
+      <div class="about-photo-tag" data-ar="خبير الهوية البصرية" data-en="Strategic Visual Expert">خبير الهوية البصرية</div>
     </div>
     <div>
-      <p class="about-text reveal-right">رحلة بدأت بشغف حقيقي وتوجّت بخبرة صلبة في قلب المؤسسات الحكومية الإماراتية.<br><br><span class="about-highlight">أكثر من 12 سنة</span> أدمج فيها الفن مع التخطيط الاستراتيجي وأحدث تقنيات الذكاء الاصطناعي — من وكالات الإعلان، إلى شرطة دبي، إلى <span class="about-highlight">إدارة التوجه البصري في الهيئة العامة للطيران المدني</span>.<br><br>عيني دائماً على أدق التفاصيل وتطوير تجربة المستخدم بأعلى المعايير.</p>
+      <p class="about-text reveal-right" data-ar="رحلة بدأت بشغف حقيقي وتوجّت بخبرة صلبة في قلب المؤسسات الحكومية الإماراتية.<br><br>أكثر من 12 سنة أدمج فيها الفن مع التخطيط الاستراتيجي وأحدث تقنيات الذكاء الاصطناعي — من وكالات الإعلان، إلى شرطة دبي، إلى إدارة الهوية البصرية في الهيئة العامة للطيران المدني.<br><br>عيني دائماً على أدق التفاصيل وتطوير تجربة المستخدم بأعلى المعايير." data-en="A journey that began with genuine passion and culminated in solid expertise at the heart of UAE government institutions.<br><br>12+ years blending art, strategic planning, and cutting-edge AI technologies — from advertising agencies, to Dubai Police, to leading visual identity at the General Civil Aviation Authority.<br><br>Always focused on the finest details and delivering user experiences to the highest standards.">رحلة بدأت بشغف حقيقي وتوجّت بخبرة صلبة في قلب المؤسسات الحكومية الإماراتية.<br><br>أكثر من 12 سنة أدمج فيها الفن مع التخطيط الاستراتيجي وأحدث تقنيات الذكاء الاصطناعي — من وكالات الإعلان، إلى شرطة دبي، إلى إدارة الهوية البصرية في الهيئة العامة للطيران المدني.<br><br>عيني دائماً على أدق التفاصيل وتطوير تجربة المستخدم بأعلى المعايير.</p>
       <div class="about-features">
-        <div class="feature-item reveal" style="transition-delay:.1s"><div class="feature-icon">◈</div><div class="feature-text"><strong>Strategic Visual Direction</strong>قيادة الهوية البصرية للمبادرات الحكومية الكبرى</div></div>
-        <div class="feature-item reveal" style="transition-delay:.2s"><div class="feature-icon">⬡</div><div class="feature-text"><strong>AI-Powered Design</strong>ComfyUI، Stable Diffusion، Midjourney في بيئة احترافية</div></div>
-        <div class="feature-item reveal" style="transition-delay:.3s"><div class="feature-icon">◉</div><div class="feature-text"><strong>UI/UX Excellence</strong>تصميم وتطوير واجهات الخدمات الرقمية الحكومية</div></div>
-        <div class="feature-item reveal" style="transition-delay:.4s"><div class="feature-icon">▣</div><div class="feature-text"><strong>Hardware & AI Infrastructure</strong>تجميع وتخصيص أجهزة GPU لتشغيل النماذج محلياً</div></div>
+        <div class="feature-item reveal" style="transition-delay:.1s"><div class="feature-icon">◈</div><div class="feature-text"><strong data-ar="التوجه البصري الاستراتيجي" data-en="Strategic Visual Direction">التوجه البصري الاستراتيجي</strong><span data-ar="قيادة الهوية البصرية للمبادرات الحكومية الكبرى" data-en="Leading visual identity for major government initiatives">قيادة الهوية البصرية للمبادرات الحكومية الكبرى</span></div></div>
+        <div class="feature-item reveal" style="transition-delay:.2s"><div class="feature-icon">⬡</div><div class="feature-text"><strong data-ar="تصميم مدعوم بالذكاء الاصطناعي" data-en="AI-Powered Design">تصميم مدعوم بالذكاء الاصطناعي</strong><span data-ar="ComfyUI، Stable Diffusion، Midjourney في بيئة احترافية" data-en="ComfyUI, Stable Diffusion, Midjourney in professional workflows">ComfyUI، Stable Diffusion، Midjourney في بيئة احترافية</span></div></div>
+        <div class="feature-item reveal" style="transition-delay:.3s"><div class="feature-icon">◉</div><div class="feature-text"><strong data-ar="تميز UI/UX" data-en="UI/UX Excellence">تميز UI/UX</strong><span data-ar="تصميم وتطوير واجهات الخدمات الرقمية الحكومية" data-en="Designing digital government service interfaces">تصميم وتطوير واجهات الخدمات الرقمية الحكومية</span></div></div>
+        <div class="feature-item reveal" style="transition-delay:.4s"><div class="feature-icon">▣</div><div class="feature-text"><strong data-ar="بنية تحتية للذكاء الاصطناعي" data-en="AI Infrastructure">بنية تحتية للذكاء الاصطناعي</strong><span data-ar="تجميع وتخصيص أجهزة GPU لتشغيل النماذج محلياً" data-en="Building and customizing GPU rigs for local AI model deployment">تجميع وتخصيص أجهزة GPU لتشغيل النماذج محلياً</span></div></div>
       </div>
     </div>
   </div>
@@ -223,61 +246,127 @@ footer{padding:2rem 4rem;border-top:.5px solid var(--border);display:flex;justif
 
 <section class="exp-section" id="experience">
   <div class="section-header reveal">
-    <div class="section-label">Experience</div>
-    <h2 class="section-title">المسيرة المهنية</h2>
+    <div class="section-label" data-ar="الخبرات" data-en="Experience">الخبرات</div>
+    <h2 class="section-title" data-ar="المسيرة المهنية" data-en="Career Journey">المسيرة المهنية</h2>
   </div>
   <div class="timeline">
-    <div class="timeline-item reveal"><div class="timeline-period"><div class="timeline-year">يونيو 2025<br>— الحاضر</div><div class="timeline-org">GCAA · دبي</div></div><div class="timeline-divider"></div><div class="timeline-content"><div class="timeline-role">كبير مصممي الجرافيك</div><p class="timeline-desc">قيادة التوجه البصري للمبادرات الحكومية الاستراتيجية — تصفير البيروقراطية وخدمات 7 نجوم. تصميم وتطوير واجهات UI/UX للخدمات الرقمية بتوظيف الذكاء الاصطناعي. إدارة مشاريع القيادات العليا بدقة واحترافية.</p><div class="timeline-tags"><span class="tag">Visual Strategy</span><span class="tag">UI/UX</span><span class="tag">AI Design</span><span class="tag">Gov Digital</span></div></div></div>
-    <div class="timeline-item reveal" style="transition-delay:.1s"><div class="timeline-period"><div class="timeline-year">2020 — 2025</div><div class="timeline-org">Dubai Police · دبي</div></div><div class="timeline-divider"></div><div class="timeline-content"><div class="timeline-role">مصمم جرافيك</div><p class="timeline-desc">تصاميم شاشات مراكز الشرطة وفق الهوية المؤسسية. حملات إعلانية واسعة: بوسترات، لوحات طرق، شاشات ATM. تدقيق التصاميم وضمان التوافق مع معايير الجهة.</p><div class="timeline-tags"><span class="tag">Campaign Design</span><span class="tag">Brand Identity</span><span class="tag">OOH Advertising</span></div></div></div>
-    <div class="timeline-item reveal" style="transition-delay:.2s"><div class="timeline-period"><div class="timeline-year">2017 — 2019</div><div class="timeline-org">DTC · دبي</div></div><div class="timeline-divider"></div><div class="timeline-content"><div class="timeline-role">مصمم جرافيك — Dubai Taxi</div><p class="timeline-desc">تصاميم شاشات مطارات دبي. تغطية فعاليات ومناسبات (تصوير فوتوغرافي وفيديو). مونتاج فيديو احترافي.</p><div class="timeline-tags"><span class="tag">Airport Screens</span><span class="tag">Photography</span><span class="tag">Video Editing</span></div></div></div>
-    <div class="timeline-item reveal" style="transition-delay:.3s"><div class="timeline-period"><div class="timeline-year">2011 — 2020</div><div class="timeline-org">Agencies · Freelance</div></div><div class="timeline-divider"></div><div class="timeline-content"><div class="timeline-role">مصمم جرافيك ومسوق رقمي</div><p class="timeline-desc">خبرة مكثفة في وكالات الإعلان والمطابع: عالم للطباعة، المشرف، الرهونجي، مركز FM للدعاية والإعلان. إدارة المطبوعات والتصاميم الرقمية.</p><div class="timeline-tags"><span class="tag">Print Design</span><span class="tag">Digital Marketing</span><span class="tag">Agency Life</span></div></div></div>
+    <div class="timeline-item reveal">
+      <div class="timeline-period"><div class="timeline-year" data-ar="يونيو 2025 — الحاضر" data-en="June 2025 — Present">يونيو 2025 — الحاضر</div><div class="timeline-org">GCAA · دبي</div></div>
+      <div class="timeline-divider"></div>
+      <div class="timeline-content">
+        <div class="timeline-role" data-ar="Senior Visual Communications & Gov. Identity Specialist" data-en="Senior Visual Communications & Gov. Identity Specialist">Senior Visual Communications & Gov. Identity Specialist</div>
+        <p class="timeline-desc" data-ar="قيادة التوجه البصري للمبادرات الحكومية الاستراتيجية — تصفير البيروقراطية، خدمات 7 نجوم، متطلبات مجلس الوزراء، ومبادرة شارك. تصميم وتطوير واجهات UI/UX للخدمات الرقمية. إدارة مشاريع القيادات العليا بدقة واحترافية." data-en="Leading visual direction for strategic government initiatives — Zero Bureaucracy, 7-Star Services, Cabinet requirements, and Sharek initiative. Designing and developing UI/UX interfaces for digital services. Managing senior leadership projects with precision.">قيادة التوجه البصري للمبادرات الحكومية الاستراتيجية — تصفير البيروقراطية، خدمات 7 نجوم، متطلبات مجلس الوزراء، ومبادرة شارك. تصميم وتطوير واجهات UI/UX للخدمات الرقمية. إدارة مشاريع القيادات العليا بدقة واحترافية.</p>
+        <div class="timeline-tags"><span class="tag">Visual Strategy</span><span class="tag">UI/UX</span><span class="tag">AI Design</span><span class="tag">Gov Digital</span><span class="tag">Zero Bureaucracy</span><span class="tag">شارك</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal" style="transition-delay:.1s">
+      <div class="timeline-period"><div class="timeline-year" data-ar="2020 — 2025" data-en="2020 — 2025">2020 — 2025</div><div class="timeline-org">Dubai Police · دبي</div></div>
+      <div class="timeline-divider"></div>
+      <div class="timeline-content">
+        <div class="timeline-role" data-ar="مصمم جرافيك" data-en="Graphic Designer">مصمم جرافيك</div>
+        <p class="timeline-desc" data-ar="تصاميم شاشات مراكز الشرطة وفق الهوية المؤسسية. حملات إعلانية واسعة: بوسترات، لوحات طرق، شاشات ATM." data-en="Designing screens for police stations per corporate identity. Wide advertising campaigns: posters, road billboards, and ATM screens.">تصاميم شاشات مراكز الشرطة وفق الهوية المؤسسية. حملات إعلانية واسعة: بوسترات، لوحات طرق، شاشات ATM.</p>
+        <div class="timeline-tags"><span class="tag">Campaign Design</span><span class="tag">Brand Identity</span><span class="tag">OOH Advertising</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal" style="transition-delay:.2s">
+      <div class="timeline-period"><div class="timeline-year" data-ar="2017 — 2019" data-en="2017 — 2019">2017 — 2019</div><div class="timeline-org">DTC · دبي</div></div>
+      <div class="timeline-divider"></div>
+      <div class="timeline-content">
+        <div class="timeline-role" data-ar="مصمم جرافيك — Dubai Taxi" data-en="Graphic Designer — Dubai Taxi">مصمم جرافيك — Dubai Taxi</div>
+        <p class="timeline-desc" data-ar="تصاميم شاشات مطارات دبي. تغطية فعاليات ومناسبات (تصوير فوتوغرافي وفيديو). مونتاج فيديو احترافي." data-en="Designing Dubai airport screens. Covering events and occasions (photo & video). Professional video editing.">تصاميم شاشات مطارات دبي. تغطية فعاليات ومناسبات (تصوير فوتوغرافي وفيديو). مونتاج فيديو احترافي.</p>
+        <div class="timeline-tags"><span class="tag">Airport Screens</span><span class="tag">Photography</span><span class="tag">Video Editing</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal" style="transition-delay:.3s">
+      <div class="timeline-period"><div class="timeline-year" data-ar="2011 — 2020" data-en="2011 — 2020">2011 — 2020</div><div class="timeline-org" data-ar="وكالات · فري لانس" data-en="Agencies · Freelance">وكالات · فري لانس</div></div>
+      <div class="timeline-divider"></div>
+      <div class="timeline-content">
+        <div class="timeline-role" data-ar="مصمم جرافيك ومسوق رقمي" data-en="Graphic Designer & Digital Marketer">مصمم جرافيك ومسوق رقمي</div>
+        <p class="timeline-desc" data-ar="خبرة مكثفة في وكالات الإعلان والمطابع: عالم للطباعة، المشرف، الرهونجي، مركز FM للدعاية والإعلان." data-en="Intensive experience in advertising agencies and printing houses: Alam Printing, Al-Mushraf, Al-Rahonji, FM Advertising Center.">خبرة مكثفة في وكالات الإعلان والمطابع: عالم للطباعة، المشرف، الرهونجي، مركز FM للدعاية والإعلان.</p>
+        <div class="timeline-tags"><span class="tag">Print Design</span><span class="tag">Digital Marketing</span><span class="tag">Agency Life</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="skills">
-  <div class="section-header reveal"><div class="section-label">Skills</div><h2 class="section-title">الأسلحة والمهارات</h2></div>
+  <div class="section-header reveal">
+    <div class="section-label" data-ar="المهارات" data-en="Skills">المهارات</div>
+    <h2 class="section-title" data-ar="الأسلحة والمهارات" data-en="Skills & Expertise">الأسلحة والمهارات</h2>
+  </div>
   <div class="skills-grid">
     <div class="skill-card reveal" style="transition-delay:.05s"><div class="skill-card-title">Adobe Suite</div><ul class="skill-list"><li>Adobe Illustrator (Ai)</li><li>Adobe Photoshop (Ps)</li><li>Adobe InDesign (Id)</li><li>Adobe Premiere Pro (Pr)</li><li>Adobe After Effects (Ae)</li></ul></div>
-    <div class="skill-card reveal" style="transition-delay:.15s"><div class="skill-card-title">AI & Generative Tools</div><ul class="skill-list"><li>ComfyUI</li><li>Stable Diffusion</li><li>Midjourney</li><li>Large Language Models</li><li>AI Workflow Automation</li></ul></div>
-    <div class="skill-card reveal" style="transition-delay:.25s"><div class="skill-card-title">Design Disciplines</div><ul class="skill-list"><li>UI/UX Design</li><li>Brand Identity</li><li>Strategic Visual Direction</li><li>Campaign & OOH Design</li><li>Digital Marketing</li></ul></div>
-    <div class="skill-card reveal" style="transition-delay:.35s"><div class="skill-card-title">Technical</div><ul class="skill-list"><li>GPU/NPU Hardware Setup</li><li>Local AI Model Deployment</li><li>Photography & Videography</li><li>Video Editing & Montage</li><li>Print Production Management</li></ul></div>
-    <div class="skill-card reveal" style="transition-delay:.45s"><div class="skill-card-title">Management</div><ul class="skill-list"><li>Project Management</li><li>Time & Task Scheduling</li><li>Senior Leadership Liaison</li><li>Gov Standards Compliance</li><li>Team Coordination</li></ul></div>
-    <div class="skill-card reveal" style="transition-delay:.55s"><div class="skill-card-title">Sectors Served</div><ul class="skill-list"><li>Civil Aviation (GCAA)</li><li>Law Enforcement (Dubai Police)</li><li>Transport (Dubai Taxi)</li><li>Print & Publishing</li><li>Advertising Agencies</li></ul></div>
+    <div class="skill-card reveal" style="transition-delay:.15s"><div class="skill-card-title" data-ar="أدوات الذكاء الاصطناعي" data-en="AI & Generative Tools">أدوات الذكاء الاصطناعي</div><ul class="skill-list"><li>ComfyUI</li><li>Stable Diffusion</li><li>Midjourney</li><li>Large Language Models</li><li>AI Workflow Automation</li></ul></div>
+    <div class="skill-card reveal" style="transition-delay:.25s"><div class="skill-card-title" data-ar="تخصصات التصميم" data-en="Design Disciplines">تخصصات التصميم</div><ul class="skill-list"><li>UI/UX Design</li><li>Brand Identity</li><li>Strategic Visual Direction</li><li>Campaign & OOH Design</li><li>Digital Marketing</li></ul></div>
+    <div class="skill-card reveal" style="transition-delay:.35s"><div class="skill-card-title" data-ar="التقني" data-en="Technical">التقني</div><ul class="skill-list"><li>GPU/NPU Hardware Setup</li><li>Local AI Model Deployment</li><li>Photography & Videography</li><li>Video Editing & Montage</li><li>Print Production</li></ul></div>
+    <div class="skill-card reveal" style="transition-delay:.45s"><div class="skill-card-title" data-ar="الإدارة" data-en="Management">الإدارة</div><ul class="skill-list"><li>Project Management</li><li>Time & Task Scheduling</li><li>Senior Leadership Liaison</li><li>Gov Standards Compliance</li><li>Team Coordination</li></ul></div>
+    <div class="skill-card reveal" style="transition-delay:.55s"><div class="skill-card-title" data-ar="القطاعات" data-en="Sectors Served">القطاعات</div><ul class="skill-list"><li>Civil Aviation (GCAA)</li><li>Law Enforcement (Dubai Police)</li><li>Transport (Dubai Taxi)</li><li>Print & Publishing</li><li>Advertising Agencies</li></ul></div>
   </div>
 </section>
 
 <section style="background:var(--surface);" id="education">
-  <div class="section-header reveal"><div class="section-label">Education & Awards</div><h2 class="section-title">التعليم والجوائز</h2></div>
+  <div class="section-header reveal">
+    <div class="section-label" data-ar="التعليم والجوائز" data-en="Education & Awards">التعليم والجوائز</div>
+    <h2 class="section-title" data-ar="التعليم والجوائز" data-en="Education & Awards">التعليم والجوائز</h2>
+  </div>
   <div class="edu-grid">
-    <div class="edu-card reveal" style="transition-delay:.05s"><div class="edu-year">التعليم</div><div class="edu-title">بكالوريوس تصميم جرافيكي</div><div class="edu-desc">كلية الإعلام — كلية تكنولوجيا المعلومات، جامعة عجمان</div></div>
-    <div class="edu-card reveal" style="transition-delay:.15s"><div class="edu-year">2011 · جامعة عجمان</div><div class="edu-title">المركز الأول — الحصاد الإعلامي</div><div class="edu-desc">تميّز في المسابقة الإعلامية الجامعية والحصول على المركز الأول</div></div>
-    <div class="edu-card reveal" style="transition-delay:.25s"><div class="edu-year">2016 · جامعة عجمان</div><div class="edu-title">تقييم الامتياز — مشروع التخرج</div><div class="edu-desc">حصول على أعلى تقييم في مشروع التخرج الجامعي بدرجة امتياز</div></div>
-    <div class="edu-card reveal" style="transition-delay:.35s"><div class="edu-year">مستمر</div><div class="edu-title">AI & Technology Self-Development</div><div class="edu-desc">تطوير ذاتي مستمر في تقنيات الذكاء الاصطناعي التوليدي ونماذج اللغة الكبيرة</div></div>
+    <div class="edu-card reveal" style="transition-delay:.05s"><div class="edu-year" data-ar="التعليم" data-en="Education">التعليم</div><div class="edu-title" data-ar="بكالوريوس تصميم جرافيكي" data-en="Bachelor of Graphic Design">بكالوريوس تصميم جرافيكي</div><div class="edu-desc" data-ar="كلية الإعلام — كلية تكنولوجيا المعلومات، جامعة عجمان" data-en="College of Media — College of Information Technology, Ajman University">كلية الإعلام — كلية تكنولوجيا المعلومات، جامعة عجمان</div></div>
+    <div class="edu-card reveal" style="transition-delay:.15s"><div class="edu-year">2011 · Ajman University</div><div class="edu-title" data-ar="المركز الأول — الحصاد الإعلامي" data-en="1st Place — Media Harvest">المركز الأول — الحصاد الإعلامي</div><div class="edu-desc" data-ar="تميّز في المسابقة الإعلامية الجامعية" data-en="Excellence in the university media competition">تميّز في المسابقة الإعلامية الجامعية</div></div>
+    <div class="edu-card reveal" style="transition-delay:.25s"><div class="edu-year">2016 · Ajman University</div><div class="edu-title" data-ar="تقييم الامتياز — مشروع التخرج" data-en="Distinction — Graduation Project">تقييم الامتياز — مشروع التخرج</div><div class="edu-desc" data-ar="أعلى تقييم في مشروع التخرج الجامعي" data-en="Highest grade in university graduation project">أعلى تقييم في مشروع التخرج الجامعي</div></div>
+    <div class="edu-card reveal" style="transition-delay:.35s"><div class="edu-year" data-ar="مستمر" data-en="Ongoing">مستمر</div><div class="edu-title">AI & Technology Self-Development</div><div class="edu-desc" data-ar="تطوير ذاتي مستمر في تقنيات الذكاء الاصطناعي التوليدي" data-en="Continuous self-development in generative AI and large language models">تطوير ذاتي مستمر في تقنيات الذكاء الاصطناعي التوليدي</div></div>
   </div>
 </section>
 
 <section class="contact-section" id="contact">
-  <div class="section-label reveal">Contact</div>
-  <h2 class="section-title reveal" style="margin-bottom:1rem;">نتحدث؟</h2>
-  <div class="contact-email reveal">yaroub.design@gmail.com</div>
-  <p class="contact-meta reveal">متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي</p>
+  <div class="section-label reveal" data-ar="تواصل" data-en="Contact">تواصل</div>
+  <h2 class="section-title reveal" style="margin-bottom:1rem;" data-ar="نتحدث؟" data-en="Let's Talk?">نتحدث؟</h2>
+  <div class="contact-email reveal">yaroubb@gmail.com</div>
+  <p class="contact-meta reveal" data-ar="متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي" data-en="Available for strategic opportunities & creative projects · Ajman / Dubai">متاح للفرص الاستراتيجية والمشاريع الإبداعية · عجمان / دبي</p>
   <div class="contact-links reveal">
-    <a href="#" class="btn-primary">LinkedIn</a>
-    <a href="#" class="btn-outline">Behance Portfolio</a>
-    <a href="mailto:yaroub.design@gmail.com" class="btn-outline">Email Direct</a>
+    <a href="#" class="btn-primary" data-ar="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+    <a href="#" class="btn-outline" data-ar="Behance Portfolio" data-en="Behance Portfolio">Behance Portfolio</a>
+    <a href="mailto:yaroubb@gmail.com" class="btn-outline" data-ar="راسلني" data-en="Email Me">راسلني</a>
   </div>
 </section>
 
 <footer>
-  <span class="footer-copy">© 2025 Yaroub Nidal Fayad · All rights reserved</span>
+  <span class="footer-copy" data-ar="© 2025 يعرب نضال بلال · جميع الحقوق محفوظة" data-en="© 2025 Yareb Nidal Bilal · All rights reserved">© 2025 يعرب نضال بلال · جميع الحقوق محفوظة</span>
   <span class="footer-logo">YN · Strategic Visual Expert</span>
 </footer>
 
 <script>
+let currentLang = 'ar';
+
+function toggleLang() {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  const html = document.getElementById('html-root');
+  const label = document.getElementById('lang-label');
+
+  if (currentLang === 'en') {
+    html.setAttribute('lang', 'en');
+    html.setAttribute('dir', 'ltr');
+    label.textContent = 'عر';
+  } else {
+    html.setAttribute('lang', 'ar');
+    html.setAttribute('dir', 'rtl');
+    label.textContent = 'EN';
+  }
+
+  document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+    const val = el.getAttribute('data-' + currentLang);
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else {
+      el.innerHTML = val;
+    }
+  });
+}
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 80) { nav.style.padding = '.8rem 4rem'; nav.style.borderBottomColor = 'rgba(201,168,76,0.3)'; }
